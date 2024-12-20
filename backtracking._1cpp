@@ -1,0 +1,51 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Function to generate all subsets
+void backtrack(vector<int> &arr, vector<int> &res, int i, vector<vector<int>> &allSubsets)
+{
+    if (i == arr.size())
+    {
+        allSubsets.push_back(res); // Store the current subset
+        return;
+    }
+
+    // Include the current element
+    res.push_back(arr[i]);
+    backtrack(arr, res, i + 1, allSubsets);
+
+    // Backtrack: remove the last element
+    res.pop_back();
+
+    // Exclude the current element
+    backtrack(arr, res, i + 1, allSubsets);
+}
+
+// Function to get all subsets of the array
+vector<vector<int>> allSubsetElement(vector<int> &nums)
+{
+    vector<vector<int>> allSubsets;
+    vector<int> res;
+    backtrack(nums, res, 0, allSubsets); // Start backtracking
+    return allSubsets;
+}
+
+int main()
+{
+    vector<int> arr = {1, 2, 3};
+    vector<vector<int>> subsets = allSubsetElement(arr);
+
+    // Print all subsets
+    for (const auto &subset : subsets)
+    {
+        cout << "{ ";
+        for (int num : subset)
+        {
+            cout << num << " ";
+        }
+        cout << "}" << endl;
+    }
+
+    return 0;
+}
