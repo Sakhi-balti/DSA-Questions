@@ -6,18 +6,17 @@ int main()
     // leecode problem 11.
     vector<int> nums = {1, 8, 6, 2, 5, 4, 8, 3, 7};
     int n = nums.size();
-    int maxArea = 0;
-    for (int i = 0; i < n - 1; i++)
+    int maxWater = 0;
+    int st = 0, end = n - 1;
+    while (st < end)
     {
-        for (int j = i + 1; j < n; j++)
-        {
-            int w = j - i;
-            int h = min(nums[i], nums[j]);
-            int currArea = w * h;
-            maxArea = max(currArea, maxArea);
-        }
+        int width = end - st;
+        int height = min(nums[st], nums[end]);
+        int currWater = width * height;
+        maxWater = max(maxWater, currWater);
+        nums[st] < nums[end] ? st++ : end--;
     }
-    cout << "maximum storage area:" << maxArea;
+    cout << "maximum storage area:" << maxWater;
 
     return 0;
 }
