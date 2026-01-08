@@ -29,7 +29,7 @@ int numTime(vector<int> &nums, int n, int m)
     int st = 0, end = 0;
     for (int i = 0; i < n; i++)
     {
-
+        st = max(st, nums[i]);
         end += nums[i];
     }
     int ans = -1;
