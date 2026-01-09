@@ -9,11 +9,11 @@
 using namespace std;
 int main()
 {
-    set<int> st = {1, 2, 3, 4, 5, 4};
-    st.insert(12);
-    for (int val : st)
+    vector<int> vec = {12, 12, 12, 12, 12};
+    // vector<int>::iterator it;
+    for (auto it = vec.begin(); it != vec.end(); it++)
     {
-        cout << val << endl;
+        cout << *(it) << endl;
     }
 
     return 0;
