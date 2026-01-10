@@ -6,14 +6,19 @@
 #include <queue>
 #include <map>
 #include <set>
+#include <unordered_map>
+#include <unordered_set>
 using namespace std;
 int main()
 {
-    vector<int> vec = {12, 12, 12, 12, 12};
-    // vector<int>::iterator it;
-    for (auto it = vec.begin(); it != vec.end(); it++)
+    unordered_map<string, int, greater<int>> m;
+    m["name"] = 227799;
+    m["age"] = 21;
+    m["age"] = 21;
+    m["Gender"] = 1;
+    for (auto p : m)
     {
-        cout << *(it) << endl;
+        cout << p.first << ' ' << p.second << endl;
     }
 
     return 0;
