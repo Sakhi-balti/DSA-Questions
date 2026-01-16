@@ -6,14 +6,7 @@ int calculation(int a, int b)
     // Using Euclid's Algorithm
     while (a > 0 && b > 0)
     {
-        if (a > b)
-        {
-            a %= b;
-        }
-        else
-        {
-            b %= a;
-        }
+        a > b ? a %= b : b %= a;
     }
     if (a == 0)
         return b;
