@@ -1,15 +1,14 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-vector<char> compresion(vector<char> &chr)
+void compression(vector<char> &chr)
 {
-    int n = chr.size();
     int idx = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < chr.size();)
     {
         char ch = chr[i];
         int count = 0;
-        while (i < n; &&chr[i] == ch)
+        while (i < chr.size() && chr[i] == ch)
         {
             count++;
             i++;
@@ -22,25 +21,22 @@ vector<char> compresion(vector<char> &chr)
         {
             chr[idx++] = ch;
             string s = to_string(count);
-            for (int val : s)
+            for (char digit : s)
             {
-                chr[idx++] = val;
+                chr[idx++] = digit;
             }
         }
-        i--;
     }
-    char.resize();
-    return idx;
+    chr.resize(idx);
 }
 int main()
 {
 
     vector<char> chr = {'a', 'b', 'b', 'c', 'c', 'c'};
-    vector<char> result = compresion(chr);
-    for (int i = 0; i < result.size(); i++)
+    compression(chr);
+    for (char c : chr)
     {
-        cout << i << " ";
+        cout << c << ' ';
     }
-
     return 0;
 }
