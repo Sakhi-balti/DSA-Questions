@@ -4,7 +4,7 @@ using namespace std;
 
 void printSubset(vector<int> &arr, vector<int> &ans, int i)
 {
-    // vector<int> ans;
+
     int n = arr.size();
     if (i == n)
     {
