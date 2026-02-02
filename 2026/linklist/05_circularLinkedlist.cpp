@@ -38,6 +38,40 @@ public:
             tail->next = head;
         }
     }
+    void insertTail(int val)
+    {
+        Node *newNode = new Node(val);
+        if (head == NULL)
+        {
+            head = tail = newNode;
+            tail->next = head;
+        }
+        else
+        {
+            newNode->next = head;
+            tail->next = newNode;
+            tail = newNode;
+        }
+    }
+    void deleteAtHead()
+    {
+        if (head == NULL)
+            return;
+        else if (head == tail)
+        {
+            delete head;
+            head = tail = NULL;
+        }
+        else
+        {
+
+            Node *temp = head;
+            head = head->next;
+            tail->next = head;
+            temp->next = NULL;
+            delete temp;
+        }
+    }
     void print()
     {
         cout << head->data << " ";
@@ -53,10 +87,11 @@ public:
 int main()
 {
     CircularList cll;
-    cll.insertHead(12);
-    cll.insertHead(13);
-    cll.insertHead(14);
-    cll.insertHead(15);
+    cll.insertTail(12);
+    cll.insertTail(13);
+    cll.insertTail(14);
+    cll.insertTail(15);
+    cll.deleteAtHead(); // 12 will remove
     cll.print();
     return 0;
 }
