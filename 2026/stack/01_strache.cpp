@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <list>
 using namespace std;
 // implement stack from strach
 class Stack
@@ -26,7 +27,26 @@ public:
         return v.size() == 0;
     }
 };
+// This is implement through linke list
+class stack
+{
 
+    list<int> ls;
+
+public:
+    void push(int val)
+    {
+        ls.push_front(val);
+    }
+    void pop()
+    {
+        ls.pop_front();
+    }
+    int top()
+    {
+        return ls.front();
+    }
+};
 int main()
 {
     Stack s;
