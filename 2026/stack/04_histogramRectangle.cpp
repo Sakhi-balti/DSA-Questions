@@ -22,7 +22,7 @@ public:
             right[i] = s.empty() ? n : s.top();
             s.push(i);
         }
-
+        // remove all elements
         while (!s.empty())
         {
             s.pop();
@@ -53,7 +53,7 @@ public:
 int main()
 {
     Solution solve;
-    vector<int> arr = {2, 1, 5, 6, 2, 3};
+    vector<int> arr = {5, 3, 5, 5, 4, 1, 3, 1};
     cout << "The largest area size: " << solve.largestRectangleArea(arr);
 
     return 0;
