@@ -6,12 +6,11 @@ class Node
 {
 public:
     Node *next;
-    Node *prev;
     int data;
     Node(int val)
     {
         data = val;
-        prev = next = NULL;
+        next = NULL;
     }
 };
 class Queue
