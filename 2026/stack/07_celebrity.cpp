@@ -35,6 +35,7 @@ int findCelebrity(vector<vector<int>> mat)
     {
         if (i != celeb)
         {
+            // celebrity ko sab janty hain but celebrity kisi ko nahi janty
             if (know(mat, celeb, i) || !know(mat, i, celeb))
             {
                 return -1;
@@ -45,7 +46,9 @@ int findCelebrity(vector<vector<int>> mat)
 }
 int main()
 {
-    vector<vector<int>> mat = {{0, 1, 0}, {0, 0, 0}, {0, 1, 0}};
+    vector<vector<int>> mat = {{0, 1, 0},
+                               {0, 0, 0},
+                               {0, 1, 0}};
     cout << findCelebrity(mat) << endl;
     return 0;
 }
