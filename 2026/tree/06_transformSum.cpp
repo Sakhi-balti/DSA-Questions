@@ -31,9 +31,9 @@ int sumTransform(Node *root)
     {
         return 0;
     }
-    int left = sumTransform(root->left);
-    int right = sumTransform(root->right);
-    root->data += left + right;
+    int leftSum = sumTransform(root->left);
+    int rightSum = sumTransform(root->right);
+    root->data += leftSum + rightSum;
     return root->data;
 }
 int main()
