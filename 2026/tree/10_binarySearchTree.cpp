@@ -49,10 +49,32 @@ void inorder(Node *root)
     cout << root->data << " ";
     inorder(root->right);
 }
+// Binary search
+bool search(Node *root, int key)
+{
+    if (root == NULL)
+    {
+        return false;
+    }
+    if (root->data == key)
+    {
+        return true;
+    }
+    if (root->data < key)
+    {
+        return search(root->right, key);
+    }
+    else
+    {
+        return search(root->left, key);
+    }
+}
 int main()
 {
     vector<int> nums = {3, 2, 1, 5, 6, 4};
     Node *root = buildBinaryTree(nums);
     inorder(root);
+    int key = 4;
+    cout << "\n " << search(root, key);
     return 0;
 }
